@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={inter.className}>
+      <body className={inter.className} onContextMenu={false} oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
           {children}
       </body>
     </html>

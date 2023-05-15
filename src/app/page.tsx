@@ -75,35 +75,33 @@ export default function Home() {
         <Row style={{background: '#fff', borderBottomLeftRadius: '8px', borderBottomRightRadius: '8px'}}>
           <Col flex='40%' style={leftPanelStyle}>
             <Card>
-              <h3>쿠폰 1개 적립</h3>
+              <h3>핸드폰 번호로 쿠폰 1개 적립</h3>
             </Card>
           </Col>
-          <Col flex='auto' style={rightPanelStyle}>
-            <Row>
-              <Col style={phoneNumberPrintStyle}>
-                010-
-              </Col>
-            </Row>
-            <Row style={rightPanelVerticalStyle}>
-              <Col style={numberPadStyle} flex="33.3%">1</Col>
-              <Col style={numberPadStyle} flex="33.3%">2</Col>
-              <Col style={{...numberPadStyle, ...numberPadStyleRightException}} flex="33.3%">3</Col>
-            </Row>
-            <Row style={rightPanelVerticalStyle}>
-              <Col style={numberPadStyle} flex="33.3%">4</Col>
-              <Col style={numberPadStyle} flex="33.3%">5</Col>
-              <Col style={{...numberPadStyle, ...numberPadStyleRightException}} flex="33.3%">6</Col>
-            </Row>
-            <Row style={rightPanelVerticalStyle}>
-              <Col style={numberPadStyle} flex="33.3%">7</Col>
-              <Col style={numberPadStyle} flex="33.3%">8</Col>
-              <Col style={{...numberPadStyle, ...numberPadStyleRightException}} flex="33.3%">9</Col>
-            </Row>
-            <Row style={rightPanelVerticalStyle}>
-              <Col style={{...numberPadStyle, ...numberPadStyleBottomException}} flex="33.3%">(지움)</Col>
-              <Col style={{...numberPadStyle, ...numberPadStyleBottomException}} flex="33.3%">0</Col>
-              <Col style={{...numberPadStyle, ...numberPadStyleRightException, ...numberPadStyleBottomException}} flex="33.3%">적립</Col>
-            </Row>
+          <Col flex='auto'>
+            <div className='pad-container'>
+              <div className='phonenumber-print-container'>
+                <div>
+                  <span>010-</span><span>5555-5555</span>
+                </div>
+              </div>
+              <div>
+                <div className='number-pad-container'>
+                  <button type='button'>1</button>
+                  <button type='button'>2</button>
+                  <button type='button'>3</button>
+                  <button type='button'>4</button>
+                  <button type='button'>5</button>
+                  <button type='button'>6</button>
+                  <button type='button'>7</button>
+                  <button type='button'>8</button>
+                  <button type='button'>9</button>
+                  <button type='button'>지우기</button>
+                  <button type='button'>0</button>
+                  <button type='button' className='collection_btn'>적립</button>
+                </div>
+              </div>
+            </div>
           </Col>
         </Row>
       </Content>
