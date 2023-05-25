@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, Col, Layout, Row, Space } from 'antd'
-import CommonHeader from '../components/CommonHeader';
+import CommonHeader from '../../components/CommonHeader';
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -31,33 +31,6 @@ const leftPanelStyle: React.CSSProperties = {
   minHeight: 'calc(100vh - 74px)',
   borderRight: '1px solid #dcdcdc',
   borderBottomLeftRadius: '8px'
-}
-
-const rightPanelStyle: React.CSSProperties = {
-  minHeight: 'calc(100vh - 74px)',
-  borderBottomRightRadius: '8px'
-}
-
-const rightPanelVerticalStyle: React.CSSProperties = {
-  height: '20%',
-}
-
-const phoneNumberPrintStyle: React.CSSProperties = {
-  padding: '25px 0px 25px 0px',
-  textAlign: 'center',
-  width: '100%',
-  borderBottom: '1px solid #dcdcdc',
-  fontWeight: 'bold',
-  fontSize: '18px',
-  lineHeight: '33%',
-
-}
-
-const numberPadStyle: React.CSSProperties = {
-  padding: '20px 0px 20px 0px',
-  textAlign: 'center',
-  borderRight: '1px solid #dcdcdc',
-  borderBottom: '1px solid #dcdcdc',
 }
 
 export default function Use() {
