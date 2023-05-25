@@ -1,9 +1,5 @@
 'use client'
 
-import { Layout } from 'antd'
-
-const { Header } = Layout;
-
 interface CommonHeaderProps {
   title: string;
   style: React.CSSProperties
@@ -12,6 +8,6 @@ interface CommonHeaderProps {
 export default function CommonHeader({ title, style }: CommonHeaderProps) {
 
   return (
-      <Header style={style}>{title}</Header>
+      <div style={style}>{title}</div>
   )
 }

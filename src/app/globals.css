@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 .pad-container { height: 100%; display: flex;  flex-direction: column; }
 .pad-container > div:nth-child(1) { flex-grow: 1; }
 .pad-container > div:nth-child(2) { flex-grow: 3; }
@@ -6,7 +11,7 @@
 .phonenumber-print-container > div { align-self: center; }
 
 .number-pad-container { height: 100%; display: flex; flex-direction: row; flex-wrap: wrap; }
-.number-pad-container > button { flex: 1 0 30%; text-align: center; background-color: #fff; border: 1px solid #dcdcdc; margin: -1px -1px; font-size: 24px; font-weight: 100; }
+.number-pad-container > button { flex: 1 0 30%; text-align: center; border: 1px solid #dcdcdc; margin: -1px -1px; font-size: 24px; font-weight: 100; }
 .number-pad-container > button:active { background-color: #dcdcdc; }
 
 .number-pad-container > button.collection_btn { background-color: orange; }
