@@ -10,3 +10,17 @@
 .number-pad-container > button:active { background-color: #dcdcdc; }
 
 .number-pad-container > button.collection_btn { background-color: orange; }
+
+.home-container { background-color: #ffffff; height: 100vh; }
+.home-container > div:nth-child(1) { flex-basis: 80%; justify-content: center; align-items: center; }
+.home-container > div:nth-child(2) { flex-basis: 20%; border-top: 1px solid #dcdcdc; }
+
+.home-container > div:nth-child(2) > div:nth-child(1) {  flex-basis: 50%; }
+.home-container > div:nth-child(2) > div:nth-child(2) {  flex-basis: 50%; border-left: 1px solid #dcdcdc;}
+.home-container > div:nth-child(2) > div:nth-child(2) > button { width: 50%; height: 100%; border: 0; border-radius: 0; font-weight: bold; font-size: 24px; }
+
+.flex { display: flex; }
+.flex.column { flex-direction: column; }
+.flex.row { flex-direction: row; }
+
+

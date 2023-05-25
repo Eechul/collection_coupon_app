@@ -1,4 +1,3 @@
-import { Layout, Space } from 'antd'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -16,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={inter.className} onContextMenu={false} oncontextmenu="return false" onselectstart="return false" ondragstart="return false" onkeydown="return false">
+      <body className={inter.className}>
           {children}
       </body>
     </html>
