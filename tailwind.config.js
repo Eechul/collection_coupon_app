@@ -12,6 +12,16 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      flexGrow: {
+        1: '1',
+        2: '2',
+        3: '3',
+        4: '4',
+        5: '5'
+      },
+      margin: {
+        '-1px': '-1px'
+      }
     },
   },
   plugins: [],
