@@ -1,29 +1,16 @@
-import NumberPad from '@/components/NumberPad/NumberPad'
+import Card from '@/components/card/BasicCard/Card'
+import LeftRightPanelLayout from '@/components/layout/LeftRightPanelLayout/LeftRightPanelLayout'
+import NumberDisplayPad from '@/components/pad/NumberDisplayPad/NumberDisplayPad'
 
 export default function Save() {
   return (
-    <>
-      <div className='flex h-full'>
-        <div className="w-1/2">
-          <div className="border border-gray-200 p-4 m-4">
-            <h3>핸드폰 번호로 쿠폰 1개 적립</h3>
-          </div>
-        </div>
-        <div className='w-1/2 border-l border-gray'>
-          <div className='flex h-full flex-col'>
-            <div className='block flex grow-1 justify-center text-center text-4xl'>
-              <div className='self-center'>
-                <span>010-</span><span>5555-5555</span>
-              </div>
-            </div>
-            <div className='grow-3'>
-              <NumberPad 
-                submitButtonText='적립'
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <LeftRightPanelLayout 
+      left={
+        <Card content={<h3>핸드폰 번호로 쿠폰을 사용 및 조회합니다.</h3>}/>
+      }
+      right={
+        <NumberDisplayPad submitButtonText='적립' />
+      }
+    />
   )
 }

@@ -1,6 +1,6 @@
-import CommonHeader from "../CommonHeader/CommonHeader";
+import CommonHeader from '../../header/CommonHeader/CommonHeader'
 
-export default function LeftRightPanelLayout({ children }: { children: React.ReactNode }) {
+export default function BasicLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>

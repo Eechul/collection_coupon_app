@@ -1,10 +1,9 @@
-import LeftRightPanelLayout from '@/components/LeftRightPanelLayout/LeftRightPanelLayout'
-import CommonHeader from '../../components/CommonHeader/CommonHeader'
+import BasicLayout from '@/components/layout/BasicLayout/BasicLayout'
 
 export default function SaveLayout({ children }: { children: React.ReactNode }) {
   return (
-    <LeftRightPanelLayout>
+    <BasicLayout>
       {children}
-    </LeftRightPanelLayout>
+    </BasicLayout>
   )
 }
