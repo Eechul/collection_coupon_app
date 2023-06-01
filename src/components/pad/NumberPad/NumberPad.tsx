@@ -1,8 +1,12 @@
+"use client"
+
 interface NumberPadProps {
   submitButtonText: string;
+  handleSubmit: any;
+  randomPadNumber: boolean;
 }
   
-export default function NumberPad({ submitButtonText }: NumberPadProps) {
+export default function NumberPad({ submitButtonText, handleSubmit, randomPadNumber }: NumberPadProps) {
 
   return (
     <div className='h-full flex flex-row flex-wrap'>
@@ -17,7 +21,7 @@ export default function NumberPad({ submitButtonText }: NumberPadProps) {
       <button className='basis-1/3 text-center bg-white border border-gray text-2xl'>9</button>
       <button className='basis-1/3 text-center bg-white border border-gray text-2xl'>지우기</button>
       <button className='basis-1/3 text-center bg-white border border-gray text-2xl'>0</button>
-      <button className='basis-1/3 text-center bg-cyan-500 hover:bg-cyan-400 text-2xl'>{submitButtonText}</button>
+      <button className='basis-1/3 text-center bg-cyan-500 hover:bg-cyan-400 text-2xl' onClick={(e) => handleSubmit(e)}>{submitButtonText}</button>
     </div>
   )
 }

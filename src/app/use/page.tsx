@@ -11,7 +11,7 @@ export default function Use() {
         <Card content={<h3>핸드폰 번호로 쿠폰을 사용 및 조회합니다.</h3>}/>
       }
       right={
-        <NumberDisplayPad submitButtonText='사용/조회' />
+        <NumberDisplayPad submitButtonText='사용/조회' handleSubmit={() => {}} />
       }
     />
   )

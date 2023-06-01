@@ -1,11 +1,15 @@
-import NumberDisplay from "../NumberDisplay/NumberDisplay";
-import NumberPad from "../NumberPad/NumberPad";
+"use client"
+
+import NumberDisplay from "../NumberDisplay/NumberDisplay"
+import NumberPad from "../NumberPad/NumberPad"
 
 interface NumberDisplayPadProps {
   submitButtonText: string;
+  handleSubmit: any;
+  randomPadNumber: boolean;
 }
 
-export default function NumberDisplayPad({ submitButtonText }: NumberDisplayPadProps) {
+export default function NumberDisplayPad({ submitButtonText, handleSubmit, randomPadNumber }: NumberDisplayPadProps) {
 
     return (
       <div className='flex h-full flex-col'>
@@ -13,7 +17,7 @@ export default function NumberDisplayPad({ submitButtonText }: NumberDisplayPadP
           <NumberDisplay />
         </div>
         <div className='grow-3'>
-          <NumberPad submitButtonText={submitButtonText} />
+          <NumberPad submitButtonText={submitButtonText} handleSubmit={handleSubmit} randomPadNumber={randomPadNumber} />
         </div>
       </div>
     )
