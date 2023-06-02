@@ -3,13 +3,14 @@
 import NumberDisplay from "../NumberDisplay/NumberDisplay"
 import NumberPad from "../NumberPad/NumberPad"
 
+
 interface NumberDisplayPadProps {
   submitButtonText: string;
-  handleSubmit: any;
-  randomPadNumber: boolean;
+  movePage: string;
+  randomPadNumber?: boolean;
 }
 
-export default function NumberDisplayPad({ submitButtonText, handleSubmit, randomPadNumber }: NumberDisplayPadProps) {
+export default function NumberDisplayPad({ submitButtonText, movePage, randomPadNumber = false }: NumberDisplayPadProps) {
 
     return (
       <div className='flex h-full flex-col'>
@@ -17,7 +18,7 @@ export default function NumberDisplayPad({ submitButtonText, handleSubmit, rando
           <NumberDisplay />
         </div>
         <div className='grow-3'>
-          <NumberPad submitButtonText={submitButtonText} handleSubmit={handleSubmit} randomPadNumber={randomPadNumber} />
+          <NumberPad submitButtonText={submitButtonText} movePage={movePage} randomPadNumber={randomPadNumber} />
         </div>
       </div>
     )
