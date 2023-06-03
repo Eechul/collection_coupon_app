@@ -1,16 +1,16 @@
 import Card from '@/components/card/BasicCard/Card'
 import LeftRightPanelLayout from '@/components/layout/LeftRightPanelLayout/LeftRightPanelLayout'
-import NumberDisplayPad from '@/components/pad/NumberDisplayPad/NumberDisplayPad'
+import SavePadPanel from '@/components/panel/SavePadPanel/SavePadPanel'
 
 export default function Save() {
 
   return (
     <LeftRightPanelLayout 
       left={
-        <Card content={<h3>핸드폰 번호로 1P 적립합니다.</h3>}/>
+        <Card content={<h3>핸드폰번호로 1포인트를 적립합니다.</h3>}/>
       }
       right={
-        <NumberDisplayPad submitButtonText='적립' movePage="/certification"  />
+        <SavePadPanel />
       }
     />
   )
