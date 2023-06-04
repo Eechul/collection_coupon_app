@@ -4,6 +4,7 @@ import SavePadPanel from '@/components/panel/SavePadPanel/SavePadPanel'
 
 export default function Save() {
 
+  console.log('321ssss');
   return (
     <LeftRightPanelLayout 
       left={

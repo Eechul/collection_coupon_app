@@ -1,4 +1,4 @@
-import CommonHeader from "@/components/header/CommonHeader/CommonHeader";
+import CommonHeader from '@/components/header/CommonHeader/CommonHeader'
 
 export default function BasicLayout({ children }: { children: React.ReactNode }) {
 
