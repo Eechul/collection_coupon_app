@@ -12,11 +12,15 @@ export default function ThreeRowLayout({ main }: { main: React.ReactNode }) {
       <div className='flex basis-4/5 justify-center items-center'>
         {main}
       </div>
-      <div className='flex flex-row basis-1/5 border-t border-t-gray'>
-        <div className='basis-1/2'>
+      <div className='flex basis-1/5 border-t border-t-gray'>
+        <div className='basis-3/4'>
+          <div>
+            <div>내 포인트 20P</div>
+            <div>사용할 포인트 20P</div>
+          </div>
         </div>
         <div className='basis-1/2 border-l border-l-gray'>
-          <button className='w-1/2 h-full border-0 border-r-0 text-2xl font-bold bg-cyan-500 hover:bg-cyan-400' onClick={() => { router.push('/save') }}>사용하기</button>
+          <button className='w-full h-full border-0 border-r-0 text-2xl font-bold bg-cyan-500 hover:bg-cyan-400' onClick={() => { router.push('/save') }}>20P 사용하기</button>
         </div>
       </div>
     </div>

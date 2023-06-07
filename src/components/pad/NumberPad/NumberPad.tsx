@@ -24,7 +24,7 @@ export default function NumberPad({ submitButtonText, movePage, randomPadNumber 
   }
 
   return (
-    <div className='h-full flex flex-row flex-wrap'>
+    <div className='h-full flex flex-wrap'>
       <button className='basis-1/3 text-center bg-white border border-gray text-2xl' onClick={() => handleClickedNumber(numbers[0])}>{numbers[0]}</button>
       <button className='basis-1/3 text-center bg-white border border-gray text-2xl' onClick={() => handleClickedNumber(numbers[1])}>{numbers[1]}</button>
       <button className='basis-1/3 text-center bg-white border border-gray text-2xl' onClick={() => handleClickedNumber(numbers[2])}>{numbers[2]}</button>
