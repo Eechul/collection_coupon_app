@@ -38,13 +38,19 @@ const products = [
     name: '아메리카노',
     point: 10,
     imageUrl: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg'
+  },
+  {
+    id: 7,
+    name: '아메리카노',
+    point: 10,
+    imageUrl: 'https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg'
   }
 ]
 
 export default function Product() {
 
   return (
-    <div className='flex pl-6 pr-6'>
+    <div className='flex p-6 overflow-x-auto'>
       {products.map(product => <ProductCard product={product} />)}
     </div>
   )
