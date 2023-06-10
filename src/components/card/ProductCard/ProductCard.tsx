@@ -1,3 +1,5 @@
+import PlusMinusValueButton from "@/components/button/MinusPlusValueButton/MinusPlusValueButton";
+
 interface ProductCardProps {
   product: any;
 }
@@ -5,16 +7,14 @@ interface ProductCardProps {
 export default function ProductCard({ product }: ProductCardProps) {
 
   return (
-    <div className='flex flex-col grow-0 shrink-0 basis-auto pr-3'>
+    <div className='border p-3'>
       <div className='aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75'>
         <img src={product.imageUrl} className='object-cover object-center w-44' />
       </div>
-      <div>{product.name}</div>
-      <div>{product.point}P</div>
-      <div className='flex'>
-        <button>+</button>
-        <span>2</span>
-        <button>-</button>
+      <div className='pt-2'>{product.name}</div>
+      <div className='pt-2'>{product.point}P</div>
+      <div className='pt-3'>
+        <PlusMinusValueButton />
       </div>
     </div>
   )
