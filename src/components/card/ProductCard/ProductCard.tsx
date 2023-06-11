@@ -11,9 +11,9 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className='aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75'>
         <img src={product.imageUrl} className='object-cover object-center w-44' />
       </div>
-      <div className='pt-2'>{product.name}</div>
-      <div className='pt-2'>{product.point}P</div>
-      <div className='pt-3'>
+      <div className='pt-2 text-xl'>{product.name}</div>
+      <div className='pt-2 text-lg'>{product.point}P</div>
+      <div className='pt-3 text-lg'>
         <PlusMinusValueButton />
       </div>
     </div>
