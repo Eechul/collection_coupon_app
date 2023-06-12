@@ -51,7 +51,7 @@ export default function Product() {
 
   return (
     <div className='flex p-6 overflow-x-auto'>
-      {products.map(product => <div className='flex flex-col grow-0 shrink-0 basis-auto pr-3'><ProductCard product={product} /></div>)}
+      {products.map(product => <div key={product.id} className='flex flex-col grow-0 shrink-0 basis-auto pr-3'><ProductCard product={product} /></div>)}
     </div>
   )
 }

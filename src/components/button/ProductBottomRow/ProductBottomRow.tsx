@@ -1,6 +1,12 @@
 'use client'
 
+"use client"
+
+import { useRouter } from "next/navigation"
+
 export default function ProductBottomRow() {
+  const router = useRouter()
+
 
   return (
     <>
@@ -12,9 +18,9 @@ export default function ProductBottomRow() {
       </div>
       <div className='basis-1/2 border-l border-l-gray text-2xl'>
         {/* <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400'>20P 사용하기</button> */}
-        {/* <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400'>10P 사용하기</button> */}
+        <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' onClick={() => router.push('/confirm')}>10P 사용하기</button>
         {/* <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>상품을 선택하세요.</button> */}
-        <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>포인트가 부족해요</button>
+        {/* <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>포인트가 부족해요</button> */}
       </div>
     </>
   )
