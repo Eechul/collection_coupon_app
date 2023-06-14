@@ -2,11 +2,10 @@
 
 import Modal from '@/components/modal/Modal'
 import { useRouter } from 'next/navigation'
-import { useReducer } from 'react'
+import { useReducer, useState } from 'react'
 
 export default function ConfirmModal() {
   const router = useRouter()
-
 
   return (
     <Modal>
@@ -26,7 +25,7 @@ export default function ConfirmModal() {
             <div className='basis-1/2'>아이스 아메리카노 1개</div>
           </div>
           <div className='flex pt-6'>
-            <button className='w-full p-2 bg-cyan-500 hover:bg-cyan-400' onClick={() => { router.back(); router.push('/certification'); }}>승인</button>
+            <button className='w-full p-2 bg-cyan-500 hover:bg-cyan-400' onClick={() => { router.push('/certification') }}>승인</button>
           </div>
         </div>
       </div>
