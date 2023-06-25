@@ -1,3 +1,4 @@
+import { Providers } from '@/redux/provider'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -10,17 +11,14 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-  modal,
 }: {
   children: React.ReactNode,
-  modal: React.ReactNode
 }) {
 
   return (
     <html lang="ko">
       <body className={inter.className}>
-        {children}
-        {modal}
+        <Providers>{children}</Providers>
       </body>
     </html>
   )

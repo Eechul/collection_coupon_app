@@ -1,9 +1,14 @@
+"use client"
+
+import { useAppSelector } from "@/redux/hooks"
 
 export default function NumberDisplay() {
 
-    return (
-      <div className='self-center'>
-          <span>010-</span><span>5555-5555</span>
-      </div>
-    )
+  const phoneNumber = useAppSelector((state) => state.phoneNumberReducer.value)
+
+  return (
+    <div className='self-center'>
+      <span>{phoneNumber}</span>
+    </div>
+  )
 }
