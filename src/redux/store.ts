@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit"
 import phoneNumberReducer from "./features/phoneNumberSlice"
+import certificationNumberReducer from "./features/certificationNumberSlice"
 
 export const store = configureStore({
   reducer: {
-    phoneNumberReducer
+    phoneNumberReducer,
+    certificationNumberReducer
   },
   devTools: process.env.NODE_ENV !== "production",
 })

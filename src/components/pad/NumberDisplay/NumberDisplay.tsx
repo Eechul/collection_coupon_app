@@ -2,13 +2,15 @@
 
 import { useAppSelector } from "@/redux/hooks"
 
-export default function NumberDisplay() {
+interface NumberDisplayProps {
+  displayValue: string
+}
 
-  const phoneNumber = useAppSelector((state) => state.phoneNumberReducer.value)
+export default function NumberDisplay({ displayValue }: NumberDisplayProps) {
 
   return (
     <div className='self-center'>
-      <span>{phoneNumber}</span>
+      <span>{displayValue}</span>
     </div>
   )
 }
