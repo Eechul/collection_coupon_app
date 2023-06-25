@@ -14,15 +14,13 @@ export const phoneNumber = createSlice({
   reducers: {
     reset: () => initialState,
     addNumber: (state, action: PayloadAction<number>) => {
-      const t = state.value + action.payload
+      const t = state.value + (state.value.length === 8 ? '-' + action.payload : action.payload)
       if (t.length <= 13) { state.value = t.length === 8 ? t + '-' : t }
     },
     deleteNumber: (state) => {
       if (state.value.length === 4) { return; }
       let t = state.value.substring(0, state.value.length - 1)
-      console.log(t)
-      console.log(t[t.length - 1])
-      if (t[t.length - 1] === '-') { t = t.substring(0, t.length - 1) }
+      if (state.value.length !== 5 && t[t.length - 1] === '-') { t = t.substring(0, t.length - 1) }
       state.value = t
     }
   }
