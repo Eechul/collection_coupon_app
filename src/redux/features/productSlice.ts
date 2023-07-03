@@ -7,6 +7,11 @@ interface product {
   number: number;
 }
 
+interface modifyProduct {
+  id: string;
+  number: number;
+}
+
 type ProductState = {
   products: product[]
 }
@@ -20,11 +25,30 @@ export const product = createSlice({
   initialState,
   reducers: {
     reset: () => initialState,
-    // id에 맞는 상품 개수를 늘리고 줄이는 액션이 필요함
+    addProduct: (state, action: PayloadAction<any[]>) => {
+      state.products = action.payload.map(p => ({
+        ...p,
+        number: 0
+      }))
+    },
+    plusProduct: (state, action: PayloadAction<modifyProduct>) => {
+      const test = state.products.find(p => (p.id === action.payload.id))
+      console.log("test1", test)
+      test!.number += 1;
+    },
+    minusProduct: (state, action: PayloadAction<modifyProduct>) => {
+      const test = state.products.find(p => (p.id === action.payload.id))
+      console.log("test2", test)
+      if (test!.number == 0) { return }
+      test!.number -= 1;
+    }
   }
 })
 
 export const {
-  reset
+  reset,
+  addProduct,
+  plusProduct,
+  minusProduct
 } = product.actions
 export default product.reducer

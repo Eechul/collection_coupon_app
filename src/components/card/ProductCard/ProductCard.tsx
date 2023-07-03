@@ -1,10 +1,14 @@
-import PlusMinusValueButton from "@/components/button/MinusPlusValueButton/MinusPlusValueButton";
+"use client"
+
+import PlusMinusValueButton from "@/components/button/MinusPlusValueButton/MinusPlusValueButton"
 
 interface ProductCardProps {
   product: any;
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
+
+
 
   return (
     <div className='border p-3'>
