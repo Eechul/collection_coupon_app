@@ -7,7 +7,7 @@ export const store = configureStore({
   reducer: {
     phoneNumberReducer,
     certificationNumberReducer,
-    productReducer
+    productReducer,
   },
   devTools: process.env.NODE_ENV !== "production",
 })

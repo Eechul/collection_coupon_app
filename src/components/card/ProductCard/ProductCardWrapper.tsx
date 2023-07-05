@@ -2,7 +2,7 @@
 
 import ProductCard from "@/components/card/ProductCard/ProductCard"
 import { addProduct } from '@/redux/features/productSlice'
-import { useAppDispath } from "@/redux/hooks"
+import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import { useEffect } from "react"
 
 const products = [
@@ -52,9 +52,10 @@ const products = [
 
 export default function ProductCardWrapper() {
   const dispatch = useAppDispath()
+  const datas = useAppSelector(state => state.productReducer.products)
 
   useEffect(() => {
-    console.log('ProductCardWrapper')
+    console.log('ProductCardWrapper', datas)
     dispatch(addProduct(products.map(p => ({ id: p.id, name: p.name, point: p.point }))))
     // selector 호출하여 product 뿌려주기
   }, [])
