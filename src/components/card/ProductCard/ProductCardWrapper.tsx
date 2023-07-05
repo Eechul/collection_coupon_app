@@ -56,13 +56,13 @@ export default function ProductCardWrapper() {
 
   useEffect(() => {
     console.log('ProductCardWrapper', datas)
-    dispatch(addProduct(products.map(p => ({ id: p.id, name: p.name, point: p.point }))))
+    dispatch(addProduct(products.map(p => ({ id: p.id, name: p.name, point: p.point, imageUrl: p.imageUrl }))))
     // selector 호출하여 product 뿌려주기
   }, [])
 
   return (
     <div className='flex p-6 overflow-x-auto'>
-      {products.map(product => <div key={product.id} className='flex flex-col grow-0 shrink-0 basis-auto pr-3'><ProductCard product={product} /></div>)}
+      {datas.map(product => <div key={product.id} className='flex flex-col grow-0 shrink-0 basis-auto pr-3'><ProductCard product={product} /></div>)}
     </div>
   )
 }

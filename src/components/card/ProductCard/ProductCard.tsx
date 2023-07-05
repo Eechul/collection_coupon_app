@@ -18,7 +18,10 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className='pt-2 text-xl'>{product.name}</div>
       <div className='pt-2 text-lg'>{product.point}P</div>
       <div className='pt-3 text-lg'>
+
         <PlusMinusValueButton />
+        {/* plus와 minus에 어떤 액션? */}
+        {/* <PlusMinusValueButton actions={plus: action1, minus: action2}/> */}
       </div>
     </div>
   )
