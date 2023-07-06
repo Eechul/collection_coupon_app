@@ -1,8 +1,8 @@
 "use client"
 
-import NumberDisplayPad from '@/components/pad/NumberDisplayPad/NumberDisplayPad'
-import { addNumber, deleteNumber } from '@/redux/features/certificationNumberSlice'
-import { useAppSelector } from '@/redux/hooks'
+import NumberDisplayPad from "@/components/pad/NumberDisplayPad/NumberDisplayPad"
+import { addNumber, deleteNumber } from "@/redux/features/certificationNumberSlice"
+import { useAppSelector } from "@/redux/hooks"
 
 export default function Certification() {
 

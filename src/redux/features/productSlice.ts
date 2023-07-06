@@ -3,6 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface product {
   id: string;
   name: string;
+  point: number;
   imageUrl: string;
   price: string;
   number: number;

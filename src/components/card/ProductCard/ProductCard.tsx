@@ -1,5 +1,7 @@
 "use client"
 
+import { minusProduct, plusProduct } from "@/redux/features/productSlice"
+
 import PlusMinusValueButton from "@/components/button/MinusPlusValueButton/MinusPlusValueButton"
 
 interface ProductCardProps {
@@ -7,8 +9,6 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product }: ProductCardProps) {
-
-
 
   return (
     <div className='border p-3'>
@@ -19,7 +19,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       <div className='pt-2 text-lg'>{product.point}P</div>
       <div className='pt-3 text-lg'>
 
-        <PlusMinusValueButton />
+        <PlusMinusValueButton value={product.number} targetId={product.id} actions={{ minus: minusProduct, plus: plusProduct }} />
         {/* plus와 minus에 어떤 액션? */}
         {/* <PlusMinusValueButton actions={plus: action1, minus: action2}/> */}
       </div>

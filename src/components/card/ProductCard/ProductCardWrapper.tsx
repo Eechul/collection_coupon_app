@@ -3,7 +3,7 @@
 import ProductCard from "@/components/card/ProductCard/ProductCard"
 import { addProduct } from '@/redux/features/productSlice'
 import { useAppDispath, useAppSelector } from "@/redux/hooks"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 const products = [
   {
@@ -53,6 +53,7 @@ const products = [
 export default function ProductCardWrapper() {
   const dispatch = useAppDispath()
   const datas = useAppSelector(state => state.productReducer.products)
+  const [usePoint, setUsePoint] = useState(0)
 
   useEffect(() => {
     console.log('ProductCardWrapper', datas)
