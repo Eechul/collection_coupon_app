@@ -10,11 +10,33 @@ export default function ProductBottomRow() {
   /* 핸드폰번호에 대한 유저 정보도 selector로 가져와서, '내 포인트' 띄워주기 */
   const datas = useAppSelector(state => state.productReducer.products)
   const [usePoint, setUsePoint] = useState(0)
+  const [user, setUser] = useState({ myPoint: 20 })
   const [shownConfirmModal, setShownConfirmModal] = useState(false)
 
 
+  const isStatusSumitButton = () => {
+    if (datas.filter(p => p.number > 0).length == 0) {
+      return (
+        <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>
+          상품을 선택하세요.
+        </button>
+      )
+    } else if (usePoint > user.myPoint) {
+      return (
+        <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>
+          포인트가 부족해요
+        </button>
+      )
+    } else {
+      return (
+        <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' onClick={() => { setShownConfirmModal(true) }}>
+          {usePoint}P 사용하기
+        </button>
+      )
+    }
+  }
+
   useEffect(() => {
-    console.log("datas 22", datas)
     const point = datas
       .filter(p => p.number > 0)
       .reduce((acc, cur) => { return acc += cur.number * cur.point }, 0)
@@ -30,12 +52,9 @@ export default function ProductBottomRow() {
         </div>
       </div>
       <div className='basis-1/2 border-l border-l-gray text-2xl'>
-        {/* <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400'>20P 사용하기</button> */}
-        <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' onClick={() => { setShownConfirmModal(true) }}>{usePoint}P 사용하기</button>
-        {/* <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>상품을 선택하세요.</button> */}
-        {/* <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>포인트가 부족해요</button> */}
+        {isStatusSumitButton()}
       </div>
-      {shownConfirmModal ? <ConfirmModal /> : ''}
+      {shownConfirmModal ? <ConfirmModal setState={setShownConfirmModal} /> : ''}
     </>
   )
 }
