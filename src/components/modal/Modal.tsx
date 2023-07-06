@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react"
 import { XMarkIcon } from '@heroicons/react/24/solid'
 
-export default function Modal({ children, title }: { children: React.ReactNode, title: string }) {
+export default function Modal({ children, title, setState }: { children: React.ReactNode, title: string, setState: any }) {
   const overlay = useRef<any>()
   const wrapper = useRef<any>()
 
@@ -24,7 +24,7 @@ export default function Modal({ children, title }: { children: React.ReactNode, 
         <div className='w-full h-full bg-white'>
           <div className='flex  text-xl text-center border-b p-4'>
             <div className='w-full'>{title}</div>
-            <button className='w-16'>
+            <button className='w-16' onClick={() => setState(false)}>
               <XMarkIcon className='w-8' />
             </button>
           </div>

@@ -4,11 +4,11 @@ import Modal from '@/components/modal/Modal'
 import { useRouter } from 'next/navigation'
 import { useReducer, useState } from 'react'
 
-export default function ConfirmModal() {
+export default function ConfirmModal({ setState }: any) {
   const router = useRouter()
 
   return (
-    <Modal title="사용승인">
+    <Modal title="사용승인" setState={setState}>
       <div className='p-6'>
         <div className='flex'>
           <div className='basis-1/2'>사용자</div>
