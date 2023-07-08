@@ -7,10 +7,12 @@ import { useEffect, useState } from "react"
 
 export default function ProductBottomRow() {
   const router = useRouter()
-  /* 핸드폰번호에 대한 유저 정보도 selector로 가져와서, '내 포인트' 띄워주기 */
   const datas = useAppSelector(state => state.productReducer.products)
   const [usePoint, setUsePoint] = useState(0)
-  const [user, setUser] = useState({ myPoint: 20 })
+  // productCardWrapper에서 아래 데이터를 불러서 reducer에 저장하고 있어야 함
+  // const user = useAppSelector(state => state.userReducer.user)
+  const [user, setUser] = useState({ id: "1", phoneNumber: "010-5548-9173", myPoint: 20 })
+  //
   const [shownConfirmModal, setShownConfirmModal] = useState(false)
 
 
@@ -54,7 +56,14 @@ export default function ProductBottomRow() {
       <div className='basis-1/2 border-l border-l-gray text-2xl'>
         {isStatusSumitButton()}
       </div>
-      {shownConfirmModal ? <ConfirmModal setState={setShownConfirmModal} /> : ''}
+      {shownConfirmModal ?
+        <ConfirmModal
+          setState={setShownConfirmModal}
+          phoneNumber={user.phoneNumber}
+          usePoint={usePoint}
+          products={datas.filter(p => p.number > 0).map(p => { return { id: p.id, name: p.name, number: p.number } })}
+        />
+        : ''}
     </>
   )
 }

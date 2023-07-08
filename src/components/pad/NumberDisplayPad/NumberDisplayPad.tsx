@@ -9,9 +9,8 @@ interface NumberDisplayPadProps {
   displayValue: string;
   numberAction: any;
   deleteAction: any;
-  submitAction?: any;
   submitButtonText: string;
-  movePage: string;
+  handleSubmit: Function;
   randomPadNumber?: boolean;
   action?: any;
 }
@@ -20,9 +19,8 @@ export default function NumberDisplayPad({
   displayValue,
   numberAction,
   deleteAction,
-  submitAction = null,
   submitButtonText,
-  movePage,
+  handleSubmit,
   randomPadNumber = false
 }: NumberDisplayPadProps) {
 
@@ -36,7 +34,7 @@ export default function NumberDisplayPad({
           numberAction={numberAction}
           deleteAction={deleteAction}
           submitButtonText={submitButtonText}
-          movePage={movePage}
+          handleSubmit={handleSubmit}
           randomPadNumber={randomPadNumber}
         />
       </div>
