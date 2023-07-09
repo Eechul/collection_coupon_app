@@ -1,0 +1,16 @@
+{
+  "stores": [
+    {
+      "id": "st1",
+      "name": "너에게로, 커피",
+      "logoImageUrl": "",
+      "regDate": ""
+    }
+  ],
+  "users": {
+    "dong1": {
+      "id": "dong1",
+      "regDate": ""
+    }
+  }
+}
