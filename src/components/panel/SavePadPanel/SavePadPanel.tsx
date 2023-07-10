@@ -5,18 +5,24 @@ import NumberDisplayPad from "../../pad/NumberDisplayPad/NumberDisplayPad"
 import { addNumber, deleteNumber } from "@/redux/features/phoneNumberSlice"
 import { setUser } from "@/redux/features/userSlice"
 import { useRouter } from "next/navigation"
+import { createUser, getUserByPhoneNumber } from "@/firebase/user"
 
 export default function SavePadPanel() {
   const router = useRouter()
   const dispatch = useAppDispath()
   const phoneNumber = useAppSelector((state) => state.phoneNumberReducer.value)
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     // 폰 번호로 user fetch
-    // reducer 저장
-    dispatch(setUser({ id: "dkSMD", name: "test", phoneNumber: phoneNumber, myPoint: 20 }))
-    //
-    router.push("/certification/save")
+    let existUser = await getUserByPhoneNumber(phoneNumber)
+    if (existUser === null) {
+      existUser = createUser(phoneNumber)
+    }
+
+    alert("저장 성공 테스트")
+    // dispatch(setUser(existUser))
+
+    // if(existUser !== null) { router.push("/certification/save") }
   }
 
   return (

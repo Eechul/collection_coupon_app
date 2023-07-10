@@ -1,23 +1,30 @@
 import { get, ref, set } from "firebase/database"
 import { database } from "./config"
 import uuid from "react-uuid"
+import dayjs from "dayjs"
 
 
 export const createUser = (phoneNumber: string) => {
-  console.log(ref)
-  const id = uuid();
-  set(ref(database, `users/${id}`), {
+  const id = uuid()
+  const newUser = {
     id: id,
-    phoneNumber: phoneNumber
-  })
+    phoneNumber: phoneNumber,
+    myPoint: 0,
+    createdAt: dayjs().format("YYYY-MM-DD HH:mm:ss"),
+  }
+  set(ref(database, `users/${id}`), newUser)
+  return newUser
 }
 
 export const getUserByPhoneNumber = async (phoneNumber: string) => {
-
-  const result = await get(ref(database, `users/${phoneNumber}`))
+  const result = await get(ref(database, "users"))
   if (result.exists()) {
-    console.log(result.val())
-    return result.val()
+    const values = result.val()
+    for (let key in values) {
+      if (values[key].phoneNumber === phoneNumber) {
+        return values[key]
+      }
+    }
   }
   return null
 }
