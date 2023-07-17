@@ -1,9 +1,20 @@
 "use client"
 
+import { useAppSelector } from "@/redux/hooks"
 import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 
 export default function UseCompletion() {
   const router = useRouter()
+  const user = useAppSelector((state) => state.userReducer.user)
+  useEffect(() => {
+    // 유저를 불러온다.
+    console.log("init :", user)
+    // 유저가 없다면 메인 페이지로 돌아간다
+    if (user === null) { router.push("/") }
+    // 유저가 있다면, 적립한다.
+    // 유저 데이터를 초기화 시킨다.
+  }, [])
 
   return (
     <div className='flex flex-col h-screen'>

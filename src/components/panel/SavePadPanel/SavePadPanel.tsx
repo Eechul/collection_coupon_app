@@ -19,10 +19,8 @@ export default function SavePadPanel() {
       existUser = createUser(phoneNumber)
     }
 
-    alert("저장 성공 테스트")
-    // dispatch(setUser(existUser))
-
-    // if(existUser !== null) { router.push("/certification/save") }
+    dispatch(setUser(existUser))
+    router.push("/certification/save")
   }
 
   return (
