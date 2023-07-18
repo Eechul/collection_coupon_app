@@ -12,7 +12,7 @@ export const phoneNumber = createSlice({
   name: "phoneNumber",
   initialState,
   reducers: {
-    reset: () => initialState,
+    phoneNumberReset: () => initialState,
     addNumber: (state, action: PayloadAction<number>) => {
       const t = state.value + (state.value.length === 8 ? '-' + action.payload : action.payload)
       if (t.length <= 13) { state.value = t.length === 8 ? t + '-' : t }
@@ -27,7 +27,7 @@ export const phoneNumber = createSlice({
 })
 
 export const {
-  reset,
+  phoneNumberReset,
   addNumber,
   deleteNumber
 } = phoneNumber.actions

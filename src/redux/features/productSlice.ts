@@ -35,12 +35,10 @@ export const product = createSlice({
     },
     plusProduct: (state, action: PayloadAction<modifyProduct>) => {
       const test = state.products.find(p => (p.id === action.payload.id))
-      console.log("test1", test)
       test!.number += 1;
     },
     minusProduct: (state, action: PayloadAction<modifyProduct>) => {
       const test = state.products.find(p => (p.id === action.payload.id))
-      console.log("test2", test)
       if (test!.number == 0) { return }
       test!.number -= 1;
     }

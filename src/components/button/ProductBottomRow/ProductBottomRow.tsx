@@ -1,29 +1,33 @@
 "use client"
 
 import ConfirmModal from "@/components/modal/ConfirmModal/ConfirmModal"
-import { useAppSelector } from "@/redux/hooks"
+import { getUserByPhoneNumber } from "@/firebase/user"
+import { setUser, user } from "@/redux/features/userSlice"
+import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
 export default function ProductBottomRow() {
   const router = useRouter()
+  const dispatch = useAppDispath()
+  const phoneNumber = useAppSelector((state) => state.phoneNumberReducer.value)
   const datas = useAppSelector(state => state.productReducer.products)
   const [usePoint, setUsePoint] = useState(0)
   // productCardWrapper에서 아래 데이터를 불러서 reducer에 저장하고 있어야 함
   // const user = useAppSelector(state => state.userReducer.user)
-  const [user, setUser] = useState({ id: "1", phoneNumber: "010-5548-9173", myPoint: 20 })
+  const [userTmp, setUserTmp] = useState<user | null>(null)
   //
   const [shownConfirmModal, setShownConfirmModal] = useState(false)
 
 
-  const isStatusSumitButton = () => {
+  const isStatusSumitButton = (myPoint: number) => {
     if (datas.filter(p => p.number > 0).length == 0) {
       return (
         <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>
           상품을 선택하세요.
         </button>
       )
-    } else if (usePoint > user.myPoint) {
+    } else if (usePoint > myPoint) {
       return (
         <button className='w-full h-full border-0 border-r-0 font-bold bg-cyan-500 hover:bg-cyan-400' disabled={true}>
           포인트가 부족해요
@@ -45,21 +49,33 @@ export default function ProductBottomRow() {
     setUsePoint(point)
   }, [datas])
 
+  useEffect(() => {
+    async function init() {
+      console.log(phoneNumber)
+      const user = await getUserByPhoneNumber(phoneNumber)
+      if (user) {
+        setUserTmp(user)
+        dispatch(setUser(user))
+      }
+    }
+    init()
+  }, [])
+
   return (
     <>
       <div className='basis-3/4 text-2xl'>
         <div className='flex flex-col h-full justify-center p-6'>
-          <div>내 포인트 <span className='font-bold'>20</span> P</div>
+          <div>내 포인트 <span className='font-bold'>{userTmp?.myPoint}</span> P</div>
           <div>사용할 포인트 <span className='font-bold'>{usePoint}</span> P</div>
         </div>
       </div>
       <div className='basis-1/2 border-l border-l-gray text-2xl'>
-        {isStatusSumitButton()}
+        {isStatusSumitButton(userTmp ? userTmp!.myPoint : 0)}
       </div>
       {shownConfirmModal ?
         <ConfirmModal
           setState={setShownConfirmModal}
-          phoneNumber={user.phoneNumber}
+          phoneNumber={userTmp?.phoneNumber}
           usePoint={usePoint}
           products={datas.filter(p => p.number > 0).map(p => { return { id: p.id, name: p.name, number: p.number } })}
         />

@@ -1,6 +1,7 @@
 "use client"
 
 import NumberDisplayPad from "@/components/pad/NumberDisplayPad/NumberDisplayPad"
+import { getCertificationNumber } from "@/firebase/setting"
 import { reset, addNumber, deleteNumber } from "@/redux/features/certificationNumberSlice"
 import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import { useRouter } from "next/navigation"
@@ -12,7 +13,9 @@ export default function Certification() {
   const certificationNumber = useAppSelector((state) => state.certificationNumberReducer.value)
   const certificationNumberWithStar = useAppSelector((state) => state.certificationNumberReducer.starValue)
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
+    const origin = await getCertificationNumber()
+    if (certificationNumber !== origin) { alert("승인번호가 맞지 않습니다."); dispatch(reset()); return; }
     router.push("/completion/save")
   }
 

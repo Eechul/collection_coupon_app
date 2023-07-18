@@ -1,9 +1,20 @@
 "use client"
 
+import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 
 export default function UseCompletion() {
   const router = useRouter()
+  const dispatch = useAppDispath()
+
+  useEffect(() => {
+    async function init() {
+
+    }
+    init()
+  }, [])
+
 
   return (
     <div className='flex flex-col h-screen'>

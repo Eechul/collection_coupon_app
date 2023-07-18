@@ -1,6 +1,7 @@
 "use client"
 
 import { saveUserPoint } from "@/firebase/user"
+import { phoneNumberReset } from "@/redux/features/phoneNumberSlice"
 import { reset, user } from "@/redux/features/userSlice"
 import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import { useRouter } from "next/navigation"
@@ -11,17 +12,14 @@ export default function UseCompletion() {
   const dispatch = useAppDispath()
   const user = useAppSelector((state) => state.userReducer.user)
   const [userTmp, setUserTmp] = useState<user | null>(null)
+
   useEffect(() => {
     async function init() {
-      // 유저를 불러온다.
-      console.log("init :", user)
-      // 유저가 없다면 메인 페이지로 돌아간다
       if (user.id === undefined) { router.replace("/") }
-      // 유저가 있다면, 적립한다.
       const savedPointUser = await saveUserPoint(user.id, 1)
-      console.log(savedPointUser)
       setUserTmp(savedPointUser)
       dispatch(reset())
+      dispatch(phoneNumberReset())
     }
     init()
   }, [])

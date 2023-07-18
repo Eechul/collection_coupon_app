@@ -1,9 +1,17 @@
 "use client"
 
+import { reset } from "@/redux/features/userSlice"
+import { useAppDispath } from "@/redux/hooks"
 import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 
 export default function HomeLayout({ main }: { main: React.ReactNode }) {
   const router = useRouter()
+  const dispatch = useAppDispath()
+
+  useEffect(() => {
+    dispatch(reset())
+  }, [])
 
   return (
     <div className='flex flex-col h-screen'>
