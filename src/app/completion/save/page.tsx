@@ -21,7 +21,6 @@ export default function UseCompletion() {
       const savedPointUser = await saveUserPoint(user.id, 1)
       console.log(savedPointUser)
       setUserTmp(savedPointUser)
-      // 유저 데이터를 초기화 시킨다.
       dispatch(reset())
     }
     init()
