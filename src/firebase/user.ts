@@ -2,11 +2,12 @@ import { get, ref, set } from "firebase/database"
 import { database } from "./config"
 import uuid from "react-uuid"
 import dayjs from "dayjs"
+import { user } from "@/redux/features/userSlice"
 
 
-export const createUser = (phoneNumber: string) => {
+export const createUser = (phoneNumber: string): user => {
   const id = uuid()
-  const newUser = {
+  const newUser: user = {
     id: id,
     phoneNumber: phoneNumber,
     myPoint: 0,
@@ -16,7 +17,7 @@ export const createUser = (phoneNumber: string) => {
   return newUser
 }
 
-export const getUserByPhoneNumber = async (phoneNumber: string) => {
+export const getUserByPhoneNumber = async (phoneNumber: string): Promise<user | null> => {
   const result = await get(ref(database, "users"))
   if (result.exists()) {
     const values = result.val()
@@ -28,3 +29,16 @@ export const getUserByPhoneNumber = async (phoneNumber: string) => {
   }
   return null
 }
+
+export const saveUserPoint = async (id: string, point: number): Promise<user | null> => {
+  const result = await get(ref(database, `users/${id}`))
+  let user = null
+  if (result.exists()) {
+    console.log("?d", result.val())
+    user = result.val() as user
+    user.myPoint = user.myPoint + point
+    set(ref(database, `users/${id}`), user)
+  }
+  return user
+}
+
