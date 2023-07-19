@@ -7,7 +7,7 @@ import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 
-export default function CertificationSave() {
+export default function CertificationUse() {
   const router = useRouter()
   const dispatch = useAppDispath()
   const certificationNumber = useAppSelector((state) => state.certificationNumberReducer.value)
@@ -16,7 +16,7 @@ export default function CertificationSave() {
   const handleSubmit = async (e: any) => {
     const origin = await getCertificationNumber()
     if (certificationNumber !== origin) { alert("승인번호가 맞지 않습니다."); dispatch(reset()); return; }
-    router.push("/completion/save")
+    router.push("/completion/use")
   }
 
   useEffect(() => {
