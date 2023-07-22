@@ -1,11 +1,18 @@
-'use client'
+"use client"
 
 import Modal from '@/components/modal/Modal'
+import { setUsePoint } from '@/redux/features/userSlice'
 import { useRouter } from 'next/navigation'
 import { useReducer, useState } from 'react'
 
 export default function ConfirmModal({ setState, phoneNumber, usePoint, products }: any) {
   const router = useRouter()
+
+  const handleSubmit = () => {
+    setUsePoint(usePoint)
+    router.push("/certification?page=use")
+  }
+
 
   return (
     <Modal title="사용승인" setState={setState}>
@@ -27,7 +34,7 @@ export default function ConfirmModal({ setState, phoneNumber, usePoint, products
           </div>
         </div>
         <div className='flex pt-6'>
-          <button className='w-full p-2 bg-cyan-500 hover:bg-cyan-400' onClick={() => { router.push("/certification?page=use") }}>승인</button>
+          <button className='w-full p-2 bg-cyan-500 hover:bg-cyan-400' onClick={() => { handleSubmit() }}>승인</button>
         </div>
       </div>
     </Modal>

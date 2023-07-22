@@ -41,3 +41,14 @@ export const saveUserPoint = async (id: string, point: number): Promise<user | n
   return user
 }
 
+export const useUserPoint = async (id: string, point: number): Promise<user | null> => {
+  const result = await get(ref(database, `users/${id}`))
+  let user = null
+  if (result.exists()) {
+    user = result.val() as user
+    user.myPoint = user.myPoint - point
+    set(ref(database, `users/${id}`), user)
+  }
+  return user
+}
+

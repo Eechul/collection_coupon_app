@@ -8,11 +8,15 @@ export interface user {
 }
 
 type UserState = {
-  user: user
+  user: user,
+  usePoint: number,
+  savePoint: number
 }
 
 const initialState = {
-  user: {}
+  user: {},
+  usePoint: 0,
+  savePoint: 0
 } as UserState
 
 export const user = createSlice({
@@ -22,12 +26,20 @@ export const user = createSlice({
     userReset: () => initialState,
     setUser: (state, action: PayloadAction<user>) => {
       state.user = action.payload
+    },
+    setUsePoint: (state, action: PayloadAction<number>) => {
+      state.usePoint = action.payload
+    },
+    setSavePoint: (state, action: PayloadAction<number>) => {
+      state.savePoint = action.payload
     }
   }
 })
 
 export const {
   userReset,
-  setUser
+  setUser,
+  setUsePoint,
+  setSavePoint
 } = user.actions
 export default user.reducer

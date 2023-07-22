@@ -16,9 +16,7 @@ export default function ProductBottomRow() {
   // productCardWrapper에서 아래 데이터를 불러서 reducer에 저장하고 있어야 함
   // const user = useAppSelector(state => state.userReducer.user)
   const [userTmp, setUserTmp] = useState<user | null>(null)
-  //
   const [shownConfirmModal, setShownConfirmModal] = useState(false)
-
 
   const isStatusSumitButton = (myPoint: number) => {
     if (datas.filter(p => p.number > 0).length == 0) {
@@ -51,7 +49,6 @@ export default function ProductBottomRow() {
 
   useEffect(() => {
     async function init() {
-      console.log(phoneNumber)
       const user = await getUserByPhoneNumber(phoneNumber)
       if (user) {
         setUserTmp(user)
