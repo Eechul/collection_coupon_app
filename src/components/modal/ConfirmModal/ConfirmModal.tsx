@@ -27,7 +27,7 @@ export default function ConfirmModal({ setState, phoneNumber, usePoint, products
           </div>
         </div>
         <div className='flex pt-6'>
-          <button className='w-full p-2 bg-cyan-500 hover:bg-cyan-400' onClick={() => { router.push("/certification/use") }}>승인</button> {/*router.push("/certification?page=save")*/}
+          <button className='w-full p-2 bg-cyan-500 hover:bg-cyan-400' onClick={() => { router.push("/certification?page=use") }}>승인</button>
         </div>
       </div>
     </Modal>

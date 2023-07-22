@@ -2,7 +2,7 @@
 
 import { saveUserPoint } from "@/firebase/user"
 import { phoneNumberReset } from "@/redux/features/phoneNumberSlice"
-import { reset, user } from "@/redux/features/userSlice"
+import { userReset, user } from "@/redux/features/userSlice"
 import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -18,7 +18,7 @@ export default function UseCompletion() {
       if (user.id === undefined) { router.replace("/") }
       const savedPointUser = await saveUserPoint(user.id, 1)
       setUserTmp(savedPointUser)
-      dispatch(reset())
+      dispatch(userReset())
       dispatch(phoneNumberReset())
     }
     init()

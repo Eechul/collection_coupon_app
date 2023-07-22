@@ -20,7 +20,7 @@ export default function SavePadPanel() {
     }
 
     dispatch(setUser(existUser))
-    router.push("/certification/save")
+    router.push("/certification?page=save")
   }
 
   return (
