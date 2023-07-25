@@ -1,6 +1,6 @@
 import CommonHeader from '@/components/header/CommonHeader/CommonHeader'
 
-export default function BasicLayout({ children }: { children: React.ReactNode }) {
+export default function CertificationLayout({ children }: { children: React.ReactNode }) {
 
   return (
     <>

@@ -5,7 +5,6 @@ interface product {
   name: string;
   point: number;
   imageUrl: string;
-  price: string;
   number: number;
 }
 
@@ -26,7 +25,7 @@ export const product = createSlice({
   name: "product",
   initialState,
   reducers: {
-    reset: () => initialState,
+    resetProduct: () => initialState,
     addProduct: (state, action: PayloadAction<any[]>) => {
       state.products = action.payload.map(p => ({
         ...p,
@@ -46,7 +45,7 @@ export const product = createSlice({
 })
 
 export const {
-  reset,
+  resetProduct,
   addProduct,
   plusProduct,
   minusProduct
