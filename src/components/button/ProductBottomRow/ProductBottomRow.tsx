@@ -1,9 +1,10 @@
 "use client"
 
 import ConfirmModal from "@/components/modal/ConfirmModal/ConfirmModal"
-import { getUserByPhoneNumber } from "@/firebase/user"
+import { createUser, getUserByPhoneNumber } from "@/firebase/user"
 import { setUser, user } from "@/redux/features/userSlice"
 import { useAppDispath, useAppSelector } from "@/redux/hooks"
+import { create } from "domain"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 
@@ -13,8 +14,6 @@ export default function ProductBottomRow() {
   const phoneNumber = useAppSelector((state) => state.phoneNumberReducer.value)
   const datas = useAppSelector(state => state.productReducer.products)
   const [usePoint, setUsePoint] = useState(0)
-  // productCardWrapper에서 아래 데이터를 불러서 reducer에 저장하고 있어야 함
-  // const user = useAppSelector(state => state.userReducer.user)
   const [userTmp, setUserTmp] = useState<user | null>(null)
   const [shownConfirmModal, setShownConfirmModal] = useState(false)
 
@@ -49,11 +48,12 @@ export default function ProductBottomRow() {
 
   useEffect(() => {
     async function init() {
-      const user = await getUserByPhoneNumber(phoneNumber)
-      if (user) {
-        setUserTmp(user)
-        dispatch(setUser(user))
+      let user = await getUserByPhoneNumber(phoneNumber)
+      if (!user) {
+        user = await createUser(phoneNumber)
       }
+      setUserTmp(user)
+      dispatch(setUser(user))
     }
     init()
   }, [])

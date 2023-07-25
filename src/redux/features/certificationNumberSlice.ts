@@ -14,7 +14,7 @@ export const certificationNumber = createSlice({
   name: "certificationNumber",
   initialState,
   reducers: {
-    reset: () => initialState,
+    certificationNumberReset: () => initialState,
     addNumber: (state, action: PayloadAction<number>) => {
       if (state.value.length == 4 && state.starValue.length == 4) { return; }
       state.value += action.payload
@@ -29,7 +29,7 @@ export const certificationNumber = createSlice({
 })
 
 export const {
-  reset,
+  certificationNumberReset,
   addNumber,
   deleteNumber
 } = certificationNumber.actions

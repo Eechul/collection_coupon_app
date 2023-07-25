@@ -1,15 +1,16 @@
 "use client"
 
-import Modal from '@/components/modal/Modal'
-import { setUsePoint } from '@/redux/features/userSlice'
-import { useRouter } from 'next/navigation'
-import { useReducer, useState } from 'react'
+import Modal from "@/components/modal/Modal"
+import { setUsePoint } from "@/redux/features/userSlice"
+import { useAppDispath } from "@/redux/hooks"
+import { useRouter } from "next/navigation"
 
 export default function ConfirmModal({ setState, phoneNumber, usePoint, products }: any) {
   const router = useRouter()
+  const dispatch = useAppDispath()
 
   const handleSubmit = () => {
-    setUsePoint(usePoint)
+    dispatch(setUsePoint(usePoint))
     router.push("/certification?page=use")
   }
 

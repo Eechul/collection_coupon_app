@@ -1,6 +1,5 @@
 "use client"
 
-import { useAppDispath } from "@/redux/hooks";
 import NumberDisplay from "../NumberDisplay/NumberDisplay"
 import NumberPad from "../NumberPad/NumberPad"
 

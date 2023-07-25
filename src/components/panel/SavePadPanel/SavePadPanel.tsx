@@ -2,10 +2,11 @@
 
 import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import NumberDisplayPad from "../../pad/NumberDisplayPad/NumberDisplayPad"
-import { addNumber, deleteNumber } from "@/redux/features/phoneNumberSlice"
+import { addNumber, deleteNumber, phoneNumberReset } from "@/redux/features/phoneNumberSlice"
 import { setUser } from "@/redux/features/userSlice"
 import { useRouter } from "next/navigation"
 import { createUser, getUserByPhoneNumber } from "@/firebase/user"
+import { useEffect } from "react"
 
 export default function SavePadPanel() {
   const router = useRouter()
@@ -22,6 +23,10 @@ export default function SavePadPanel() {
     dispatch(setUser(existUser))
     router.push("/certification?page=save")
   }
+
+  useEffect(() => {
+    dispatch(phoneNumberReset())
+  }, [])
 
   return (
     <>
