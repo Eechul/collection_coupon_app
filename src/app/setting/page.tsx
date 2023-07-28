@@ -6,7 +6,10 @@ export default function Setting() {
   return (
     <LeftRightPanelLayout
       left={
-        <Card content="테스트 입니다1"></Card>
+        <ul className="list-none">
+          <li content="승인번호 변경"></li>
+          <li content="승인번호 변경"></li>
+        </ul>
       }
       right={
         <Card content="테스트 입니다2"></Card>
