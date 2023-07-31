@@ -10,8 +10,11 @@
 - next.js 배포에 대한 설계를 못한점
 
 ## 주요 라이브러리 버전
-- Next.js 13
-- Firebase 10.0
+- [Next.js 13](https://nextjs.org/)
+- [Typescript 5](https://www.typescriptlang.org/)
+- [Firebase 10](https://firebase.google.com/)
+- [Tailwindcss 3](https://tailwindcss.com/)
+- [reduxjs/tookit 1.9](https://redux-toolkit.js.org/)
 
 ## 시작하기
 
