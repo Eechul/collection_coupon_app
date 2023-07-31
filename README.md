@@ -1,4 +1,5 @@
-이 프로젝트는 [Next.js](https://nextjs.org/) 입니다.
+이 프로젝트는 [Next.js](https://nextjs.org/) 기반 입니다.
+# 포인트 적립 어플리케이션
 
 ## 프로그램 설명
 매장에서 포인트 적립하는 서비스를 next.js 와 firebase로 구현. 
