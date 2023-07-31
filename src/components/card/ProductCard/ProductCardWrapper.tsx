@@ -1,64 +1,23 @@
 'use client'
 
 import ProductCard from "@/components/card/ProductCard/ProductCard"
+import { getProducts } from "@/firebase/product"
 import { getUserByPhoneNumber } from "@/firebase/user"
 import { addProduct } from '@/redux/features/productSlice'
 import { useAppDispath, useAppSelector } from "@/redux/hooks"
 import { useEffect, useState } from "react"
 
-const products = [
-  {
-    id: 1,
-    name: '아메리카노',
-    point: 10,
-    imageUrl: 'https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_1444725_20220704182019850.png'
-  },
-  {
-    id: 2,
-    name: '아메리카노',
-    point: 10,
-    imageUrl: 'https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_1444725_20220704182019850.png'
-  },
-  {
-    id: 3,
-    name: '아메리카노',
-    point: 10,
-    imageUrl: 'https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_1444725_20220704182019850.png'
-  },
-  {
-    id: 4,
-    name: '아메리카노',
-    point: 10,
-    imageUrl: 'https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_1444725_20220704182019850.png'
-  },
-  {
-    id: 5,
-    name: '아메리카노',
-    point: 10,
-    imageUrl: 'https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_1444725_20220704182019850.png'
-  },
-  {
-    id: 6,
-    name: '아메리카노',
-    point: 10,
-    imageUrl: 'https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_1444725_20220704182019850.png'
-  },
-  {
-    id: 7,
-    name: '아메리카노',
-    point: 10,
-    imageUrl: 'https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_1444725_20220704182019850.png'
-  }
-]
 
 export default function ProductCardWrapper() {
   const dispatch = useAppDispath()
   const datas = useAppSelector(state => state.productReducer.products)
-  const phoneNumber = useAppSelector((state) => state.phoneNumberReducer.value)
-  const [usePoint, setUsePoint] = useState(0)
 
   useEffect(() => {
-    dispatch(addProduct(products.map(p => ({ id: p.id, name: p.name, point: p.point, imageUrl: p.imageUrl }))))
+    async function init() {
+      const result = await getProducts()
+      dispatch(addProduct(result))
+    }
+    init()
   }, [])
 
   return (

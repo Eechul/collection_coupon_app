@@ -4,7 +4,6 @@ interface product {
   id: string;
   name: string;
   point: number;
-  imageUrl: string;
   number: number;
 }
 

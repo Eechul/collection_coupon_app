@@ -1,6 +1,17 @@
 {
   "users": {},
-  "products": {},
+  "products": [
+    {
+      "id": "975f27c7-e5a3-4964-ac6c-efdf64177f0e",
+      "name": "아메리카노",
+      "point": 10
+    },
+    {
+      "id": "7b24a912-a48e-4f7a-eaf5-b8433ba2890b",
+      "name": "카페라떼",
+      "point": 15
+    }
+  ],
   "setting": {
     "certification": {
       "number": "0000"
