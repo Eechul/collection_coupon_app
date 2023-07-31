@@ -17,7 +17,7 @@
 firebase 설정
 - [firebase 프로젝트 추가하기](https://firebase.google.com/?hl=ko)
 - firebase console 접속
-- 웹 앱 추가 -> firebaseConfig 객체 내용 복사 후, .env에 작성하기.
+- 웹 앱 추가 -> firebaseConfig 객체 내용 복사 후, .env에 작성하기
 - realtime database 생성 후, .env에 작성('NEXT_PUBLIC_FIREBASE_DATABASE_URL')하기
 
 .env 작성하기
